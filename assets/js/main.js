@@ -1,9 +1,33 @@
-const pokemonList = document.getElementById('pokemonList')
-const loadMoreButton = document.getElementById('loadMoreButton')
+/* variáveis normais */
+const pokemonList = document.getElementById('pokemonList');
+const loadMoreButton = document.getElementById('loadMoreButton');
 
-const maxRecords = 151
-const limit = 10
+const maxRecords = 649;
+const limit = 16;
 let offset = 0;
+
+/* function modal */
+function openModal () {
+    const pokeImageAlt = document.getElementById('#pokeImage');
+    
+    console.log(pokeImageAlt);
+
+    const modal = document.getElementById('janela-modal')
+    modal.classList.add('open')    
+
+    
+    modal.addEventListener("click", (e) => {
+        if(e.target.id == 'close-modal' || e.target.id == 'janela-modal') {
+            modal.classList.remove('open')
+        }        
+    })
+
+    
+};
+
+
+
+/* código*/
 
 function convertPokemonToLi(pokemon) {
     return `
@@ -16,21 +40,22 @@ function convertPokemonToLi(pokemon) {
                     ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
                 </ol>
 
-                <img src="${pokemon.photo}"
+                <img onclick="openModal()" id="pokeImage" src="${pokemon.photo}"
                      alt="${pokemon.name}">
             </div>
         </li>
     `
-}
+};
+
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons.map(convertPokemonToLi).join('')
         pokemonList.innerHTML += newHtml
     })
-}
+};
 
-loadPokemonItens(offset, limit)
+loadPokemonItens(offset, limit);
 
 loadMoreButton.addEventListener('click', () => {
     offset += limit
@@ -38,10 +63,10 @@ loadMoreButton.addEventListener('click', () => {
 
     if (qtdRecordsWithNexPage >= maxRecords) {
         const newLimit = maxRecords - offset
-        loadPokemonItens(offset, newLimit)
+        loadPokemonItens(offset, newLimit);
 
-        loadMoreButton.parentElement.removeChild(loadMoreButton)
+        loadMoreButton.parentElement.removeChild(loadMoreButton);
     } else {
-        loadPokemonItens(offset, limit)
+        loadPokemonItens(offset, limit);
     }
-})
+});

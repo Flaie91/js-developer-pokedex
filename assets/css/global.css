@@ -3,6 +3,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     background-color: #f6f8fc;
 }
@@ -12,6 +13,11 @@ body {
     height: 100vh;
     padding: 1rem;
     background-color: #fff;
+    
+}
+
+#pokeImage {
+    cursor: pointer;
 }
 
 @media screen and (min-width: 992px) {
@@ -22,3 +28,78 @@ body {
         border-radius: 1rem;
     }
 }
+
+/*---- Modal-----------*/
+
+#janela-modal {
+    height: 100vw;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #00000080;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  
+
+}
+
+#modal {   
+    position: fixed;
+    left: 50%;
+    top: 50%;    
+    transform: translate(-50%, -50%);
+    background: white;    
+    width: 400px;
+    max-width: 90%;
+    height: 600px;
+    padding: 1.2rem ;
+    border-radius: 0.5rem;
+    background-color: #ffffff96;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 4px 4px  rgba(0, 0, 0,0.4);  
+    
+}
+
+#close-modal {
+    position: absolute;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    color: white;
+    background-color: red;
+    top: -10px;
+    right:-10px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    
+}
+#janela-modal.open {
+    display: flex;
+       
+    
+}
+
+@keyframes openMod {
+    from{
+        opacity: 0;
+        transform: translate3d(-100px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+
+}
+
+.open .modal {    
+    animation: openMod 0.5s;
+}
+

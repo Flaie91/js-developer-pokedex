@@ -25,17 +25,34 @@
 <body>
     <section class="content">
         <h1>Pokedex</h1>
-
+        
         <ol id="pokemonList" class="pokemons">
             <!-- ..... Pokemons here ..... -->
         </ol>
 
         <div class="pagination">
             <button id="loadMoreButton" type="button">
-                Load More
+                Load More...
             </button>
         </div>
     </section>
+
+    <!--Janela Modal-->
+       <div id="janela-modal" >
+        <div id="modal" >
+            <div id="modal-conteudo">
+                <div class="modal-header">                
+                    <span>Nome</span>
+                    <span>Numero</span>
+                    <img src="" alt="Pokemon ">
+                    <button id="close-modal">X</button>                
+                </div>          
+                <div class="modal-body">   
+                
+                </div>
+            </div>
+        </div>
+       </div>
 
     <!-- Nosso JS -->
     <script src="./assets/js/pokemon-model.js"></script>
