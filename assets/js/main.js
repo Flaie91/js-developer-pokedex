@@ -8,10 +8,9 @@ let offset = 0;
 
 /* function modal */
 function openModal () {
+    
     const pokeImageAlt = document.getElementById('#pokeImage');
     
-    console.log(pokeImageAlt);
-
     const modal = document.getElementById('janela-modal')
     modal.classList.add('open')    
 
