@@ -25,8 +25,7 @@ function openModal () {
 };
 
 
-
-/* código*/
+// convert de pokemon em lista html (segunda)
 
 function convertPokemonToLi(pokemon) {
     return `
@@ -46,6 +45,7 @@ function convertPokemonToLi(pokemon) {
     `
 };
 
+/*recebido lista de pokemons, transformou em lista html, concatenamos a lista sem espaço e virou novo html.*/
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
@@ -55,6 +55,8 @@ function loadPokemonItens(offset, limit) {
 };
 
 loadPokemonItens(offset, limit);
+
+//botão de carregar mais pokemons
 
 loadMoreButton.addEventListener('click', () => {
     offset += limit
